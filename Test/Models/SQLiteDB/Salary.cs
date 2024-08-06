@@ -8,6 +8,6 @@ namespace Test.Models.SQLiteDB
         public int Id { get; set; }
         public Guid EmployeeId { get; set; }
         public string PaymentMethod { get; set; } = string.Empty;
-        public double MonthlySalary { get; set; }
+        public string MonthlySalary { get; set; } = string.Empty;
     }
 }

@@ -1,7 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows.Input;
-
 namespace Test.ViewModels.Department
 {
     public class AddDepartmentPageViewModel : BaseViewModel
