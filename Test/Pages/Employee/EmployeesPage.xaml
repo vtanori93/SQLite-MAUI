@@ -12,8 +12,22 @@
         <ResourceDictionary>
             <Style TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource Gray1}"/>
+                <Setter Property="CornerRadius" Value="4"/>
+                <Setter Property="Padding" Value="16"/>
+                <Setter Property="IsClippedToBounds" Value="True"/>
+                <Setter Property="HasShadow" Value="False"/>
             </Style>
-
+            <Style Class="StyleClassLabel1" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="MaxLines" Value="1"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+                <Setter Property="TextColor" Value="{StaticResource Black1}"/>
+                <Setter Property="FontFamily" Value="OpenSans-Semibold"/>
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
         </ResourceDictionary>
     </MainPage:BasePage.Resources>
     <!--#endregion-->
@@ -42,8 +56,9 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <Frame>
-                                    <Label
-                                        Text="{Binding Name}"/>
+                                    <VerticalStackLayout>
+                                        
+                                    </VerticalStackLayout>
                                 </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

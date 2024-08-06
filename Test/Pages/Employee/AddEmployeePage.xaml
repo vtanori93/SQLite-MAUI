@@ -37,7 +37,7 @@
                 <CustomEntry:CustomEntry1View 
                     Title="Departamento"/>
                 <CustomEntry:CustomEntry1View 
-                    Title="Método de pago"/>
+                    Title="Sueldo mensual"/>
                 <Button
                     Command="{Binding SaveCommand}"
                     StyleClass="StyleClassButton1"
