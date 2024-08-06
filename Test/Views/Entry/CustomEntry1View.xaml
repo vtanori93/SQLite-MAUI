@@ -38,6 +38,11 @@
             <Label
                 x:Name="TitleLabel"/>
             <Frame>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
+                        x:Name="OpenDatePicker"
+                        Tapped="OpenDatePicker_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Entry 
                     x:Name="InputEntry"
                     TextChanged="InputEntry_TextChanged"/>

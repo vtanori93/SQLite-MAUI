@@ -52,8 +52,10 @@
                 <CustomEntry:CustomEntry1View 
                     Title="Nombre del empleado"/>
                 <CustomEntry:CustomEntry1View 
+                    IsDataPicker="True"
                     Title="Fecha de ingreso"/>
                 <CustomEntry:CustomEntry1View 
+                    IsDataPicker="True"
                     Title="Fecha de nacimiento"/>
                 <CustomEntry:CustomEntry1View 
                     Title="Departamento"/>
