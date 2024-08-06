@@ -6,6 +6,7 @@ namespace Test.ViewModels.Department
 {
     public class DepartmentsPageViewModel : BaseViewModel
     {
+        #region Variables
         ObservableCollection<Models.SQLiteDB.Department> data = new ObservableCollection<Models.SQLiteDB.Department>();
         public ObservableCollection<Models.SQLiteDB.Department> Data
         {
@@ -23,11 +24,15 @@ namespace Test.ViewModels.Department
             }
         }
         public Command<Models.SQLiteDB.Department> ItemDepartmentTapped { get; }
+        #endregion
+        #region Constructor
         public DepartmentsPageViewModel()
         {
             ItemDepartmentTapped = new Command<Models.SQLiteDB.Department>(OnItemDepartmentSelected);
             GetDataCommand?.Execute(null);
         }
+        #endregion
+        #region Commands and Methods
         public ICommand GetDataCommand => new Command(async (e) => { await ExecuteGetDataCommandAsync(); });
         private async Task ExecuteGetDataCommandAsync()
         {
@@ -77,5 +82,6 @@ namespace Test.ViewModels.Department
                 }
             }
         }
+        #endregion
     }
 }
