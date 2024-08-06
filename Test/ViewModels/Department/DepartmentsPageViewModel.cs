@@ -68,7 +68,8 @@ namespace Test.ViewModels.Department
                 var DeleteResult = await SQLiteDB.DeleteDepartmentAsync(Value.DepartmentId);
                 if (DeleteResult.Data)
                 {
-                    IsRefreshing = true;
+                    await ExecuteGetDataCommandAsync();
+                    await Helpers.Function.ShowMessageAsync("El departamento se eliminó correctamente.");
                 }
                 else
                 {
