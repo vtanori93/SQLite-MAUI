@@ -38,5 +38,15 @@ namespace Test.ViewModels.Employee
                 IsBusy = false;
             }
         }
+        public ICommand AddEmployeeCommand => new Command(async (e) => { await ExecuteAddEmployeeCommandAsync(); });
+        private async Task ExecuteAddEmployeeCommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                await Shell.Current.Navigation.PushAsync(new Pages.Employee.AddEmployeePage());
+                IsBusy = false;
+            }
+        }
     }
 }

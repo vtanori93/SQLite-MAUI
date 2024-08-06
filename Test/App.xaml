@@ -9,6 +9,7 @@
             <Color x:Key="Black1">#000000</Color>
             <Color x:Key="White1">#FFFFFF</Color>
             <Color x:Key="Purple1">#611f69</Color>
+            <Color x:Key="Gray1">#F6F6F6</Color>
             <Style Class="StyleClassButton1" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="HeightRequest" Value="40"/>

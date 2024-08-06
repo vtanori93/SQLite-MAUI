@@ -61,11 +61,29 @@ namespace Test.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agregar.
+        /// </summary>
+        internal static string ADD {
+            get {
+                return ResourceManager.GetString("ADD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Departamentos.
         /// </summary>
         internal static string DEPARTMENTS {
             get {
                 return ResourceManager.GetString("DEPARTMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descripción.
+        /// </summary>
+        internal static string DESCRIPTION {
+            get {
+                return ResourceManager.GetString("DESCRIPTION", resourceCulture);
             }
         }
         

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MainPage:BasePage
+    xmlns:MainPage="clr-namespace:Test.Pages"
+    xmlns:ViewModel="clr-namespace:Test.ViewModels.Department"
+    xmlns:Language="clr-namespace:Test.Language" 
+    Title="{Language:Translate Text=EMPLOYEES}" 
+    xmlns:CustomEntry="clr-namespace:Test.Views.Entry"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Test.Pages.Department.AddDepartmentPage">
+    <!--#region Resources-->
+    <MainPage:BasePage.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </MainPage:BasePage.Resources>
+    <!--#endregion-->
+    <!--#region BindingContext-->
+    <MainPage:BasePage.BindingContext>
+        <ViewModel:AddDepartmentPageViewModel/>
+    </MainPage:BasePage.BindingContext>
+    <!--#endregion-->
+    <!--#region Content-->
+    <MainPage:BasePage.Content>
+        <ScrollView
+            Padding="16"
+            BackgroundColor="{StaticResource White1}">
+            <VerticalStackLayout
+                Spacing="16">
+                <CustomEntry:CustomEntry1View 
+                    Title="{Language:Translate Text=DESCRIPTION}"
+                    Text="{Binding Description}"/>
+                <Button
+                    Command="{Binding SaveCommand}"
+                    StyleClass="StyleClassButton1"
+                    Text="{Language:Translate Text=ADD}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </MainPage:BasePage.Content>
+    <!--#endregion-->
+</MainPage:BasePage>

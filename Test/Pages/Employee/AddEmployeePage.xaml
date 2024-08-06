@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MainPage:BasePage
+    xmlns:MainPage="clr-namespace:Test.Pages"
+    xmlns:ViewModel="clr-namespace:Test.ViewModels.Employee"
+    xmlns:Language="clr-namespace:Test.Language" 
+    Title="{Language:Translate Text=EMPLOYEES}"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Test.Pages.Employee.AddEmployeePage">
+    <!--#region Resources-->
+    <MainPage:BasePage.Resources>
+        <ResourceDictionary>
+
+        </ResourceDictionary>
+    </MainPage:BasePage.Resources>
+    <!--#endregion-->
+    <!--#region BindingContext-->
+    <MainPage:BasePage.BindingContext>
+        <ViewModel:AddEmployeePageViewModel/>
+    </MainPage:BasePage.BindingContext>
+    <!--#endregion-->
+    <!--#region Content-->
+    <MainPage:BasePage.Content>
+        <ScrollView>
+            <VerticalStackLayout>
+
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </MainPage:BasePage.Content>
+    <!--#endregion-->
+</MainPage:BasePage>

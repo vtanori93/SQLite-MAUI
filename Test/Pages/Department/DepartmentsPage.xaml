@@ -10,7 +10,20 @@
     <!--#region Resources-->
     <MainPage:BasePage.Resources>
         <ResourceDictionary>
-
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray1}"/>
+                <Setter Property="CornerRadius" Value="4"/>
+                <Setter Property="Padding" Value="16"/>
+                <Setter Property="IsClippedToBounds" Value="True"/>
+                <Setter Property="HasShadow" Value="False"/>
+            </Style>
+            <Style Class="StyleClassLabel1" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="MaxLines" Value="1"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+                <Setter Property="TextColor" Value="{StaticResource Black1}"/>
+                <Setter Property="FontFamily" Value="OpenSans-Semibold"/>
+            </Style>
         </ResourceDictionary>
     </MainPage:BasePage.Resources>
     <!--#endregion-->
@@ -38,10 +51,17 @@
                         BindableLayout.ItemsSource="{Binding Data}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout>
-                                    <Label
-                                        Text="{Binding Description}"/>
-                                </StackLayout>
+                                <Frame>
+                                    <Grid
+                                        RowDefinitions="auto,auto"
+                                        ColumnDefinitions="*,auto,auto">
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            StyleClass="StyleClassLabel1"
+                                            Text="{Binding Description}"/>
+                                    </Grid>
+                                </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </VerticalStackLayout>
@@ -51,6 +71,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 StyleClass="StyleClassButton1"
+                Command="{Binding AddDeparmentCommand}"
                 Text="{Language:Translate Text=NEW_DEPARTMENT}"/>
         </Grid>
     </MainPage:BasePage.Content>

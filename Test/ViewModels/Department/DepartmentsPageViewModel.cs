@@ -38,5 +38,15 @@ namespace Test.ViewModels.Department
                 IsBusy = false;
             }
         }
+        public ICommand AddDeparmentCommand => new Command(async (e) => { await ExecuteAddDeparmentCommandAsync(); });
+        private async Task ExecuteAddDeparmentCommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                await Shell.Current.Navigation.PushAsync(new Pages.Department.AddDepartmentPage());
+                IsBusy = false;
+            }
+        }
     }
 }

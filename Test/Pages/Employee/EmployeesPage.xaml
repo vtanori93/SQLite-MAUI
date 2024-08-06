@@ -10,6 +10,9 @@
     <!--#region Resources-->
     <MainPage:BasePage.Resources>
         <ResourceDictionary>
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray1}"/>
+            </Style>
 
         </ResourceDictionary>
     </MainPage:BasePage.Resources>
@@ -38,10 +41,10 @@
                         BindableLayout.ItemsSource="{Binding Data}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout>
+                                <Frame>
                                     <Label
                                         Text="{Binding Name}"/>
-                                </StackLayout>
+                                </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </VerticalStackLayout>
@@ -51,6 +54,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 StyleClass="StyleClassButton1"
+                Command="{Binding AddEmployeeCommand}"
                 Text="{Language:Translate Text=NEW_EMPLOYEE}"/>
         </Grid>
     </MainPage:BasePage.Content>
