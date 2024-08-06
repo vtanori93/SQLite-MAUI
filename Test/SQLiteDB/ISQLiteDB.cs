@@ -7,5 +7,8 @@ namespace Test.SQLiteDB
         Task<Response<bool>> PostDepartmentAsync(Department Department);
         Task<Response<bool>> PostEmployeeAsync(Employee Employee);
         Task<Response<bool>> PostSalaryAsync(Salary Salary);
+        Task<Response<List<Department>>> GetDepartmentAsync();
+        Task<Response<List<Employee>>> GetEmployeeAsync();
+        Task<Response<List<Salary>>> GetSalaryAsync();
     }
 }

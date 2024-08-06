@@ -9,7 +9,10 @@ namespace Test.SQLiteDB
             var Response = new Response<bool>();   
             try
             {
-
+                if (App.Database != null)
+                {
+                    Response.Data = Convert.ToBoolean(await App.Database.InsertAsync(Department));
+                }
             }
             catch(Exception Ex)
             {
@@ -23,7 +26,10 @@ namespace Test.SQLiteDB
             var Response = new Response<bool>();
             try
             {
-
+                if (App.Database != null)
+                {
+                    Response.Data = Convert.ToBoolean(await App.Database.InsertAsync(Employee));
+                }
             }
             catch (Exception Ex)
             {
@@ -37,7 +43,64 @@ namespace Test.SQLiteDB
             var Response = new Response<bool>();
             try
             {
-
+                if (App.Database != null)
+                {
+                    Response.Data = Convert.ToBoolean(await App.Database.InsertAsync(Salary));
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Department>>> GetDepartmentAsync()
+        {
+            var Response = new Response<List<Department>>();
+            try
+            {
+                if(App.Database != null)
+                {
+                    var Result = App.Database.Table<Department>();
+                    Response.Data = await Result.ToListAsync();   
+                }                
+            }
+            catch(Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);            
+        }
+        public async Task<Response<List<Employee>>> GetEmployeeAsync()
+        {
+            var Response = new Response<List<Employee>>();
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Result = App.Database.Table<Employee>();
+                    Response.Data = await Result.ToListAsync();
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Salary>>> GetSalaryAsync()
+        {
+            var Response = new Response<List<Salary>>();
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Result = App.Database.Table<Salary>();
+                    Response.Data = await Result.ToListAsync();
+                }
             }
             catch (Exception Ex)
             {
