@@ -109,5 +109,26 @@ namespace Test.SQLiteDB
             }
             return await Task.FromResult(Response);
         }
+        public async Task<Response<bool>> DeleteDepartmentAsync(Guid DepartmentId)
+        {
+            var Response = new Response<bool>();
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Result = await App.Database.Table<Models.SQLiteDB.Department>().Where(x => x.DepartmentId == DepartmentId).FirstOrDefaultAsync();
+                    if (Result != null)
+                    {
+                        Response.Data = Convert.ToBoolean(await App.Database.DeleteAsync(Result));
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
     }
 }

@@ -6,5 +6,9 @@
         {
             await Shell.Current.DisplayAlert("Alerta", Message, "Aceptar");
         }
+        public static async Task<bool> QuestionAsync(string Message)
+        {
+            return await Task.FromResult(await Shell.Current.DisplayAlert("Alerta", Message,"Aceptar","Cancelar"));
+        }
     }
 }
