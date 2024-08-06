@@ -1,6 +1,6 @@
 namespace Test.Pages.Home;
 
-public partial class HomePage : ContentPage
+public partial class HomePage : BasePage
 {
 	public HomePage()
 	{

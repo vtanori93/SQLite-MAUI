@@ -5,6 +5,14 @@ namespace Test.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        #region Global Variables
+        bool isBusy = false;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set { SetProperty(ref isBusy, value); }
+        }
+        #endregion
         #region DependencyService
         public ISQLiteDB SQLiteDB => DependencyService.Get<ISQLiteDB>();
         #endregion
