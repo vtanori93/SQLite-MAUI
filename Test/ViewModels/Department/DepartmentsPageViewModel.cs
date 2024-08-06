@@ -1,6 +1,42 @@
-﻿namespace Test.ViewModels.Department
+﻿using System.Diagnostics;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+
+namespace Test.ViewModels.Department
 {
-    public class DepartmentsPageViewModel
+    public class DepartmentsPageViewModel : BaseViewModel
     {
+        ObservableCollection<Models.SQLiteDB.Department> data = new ObservableCollection<Models.SQLiteDB.Department>();
+        public ObservableCollection<Models.SQLiteDB.Department> Data
+        {
+            get { return data; }
+            set { SetProperty(ref data, value); }
+        }
+        public DepartmentsPageViewModel()
+        {
+            GetDataCommand?.Execute(null);
+        }
+        public ICommand GetDataCommand => new Command(async (e) => { await ExecuteGetDataCommandAsync(); });
+        private async Task ExecuteGetDataCommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                try
+                {
+                    var Result = await SQLiteDB.GetDepartmentAsync();
+                    if (Result.Data != null)
+                    {
+                        Data = new ObservableCollection<Models.SQLiteDB.Department>(Result.Data);
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    Debug.WriteLine(Ex.ToString());
+                }
+                IsRefreshing = false;
+                IsBusy = false;
+            }
+        }
     }
 }

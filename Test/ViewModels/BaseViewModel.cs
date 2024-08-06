@@ -12,6 +12,12 @@ namespace Test.ViewModels
             get { return isBusy; }
             set { SetProperty(ref isBusy, value); }
         }
+        bool isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set { SetProperty(ref isRefreshing, value); }
+        }
         #endregion
         #region DependencyService
         public ISQLiteDB SQLiteDB => DependencyService.Get<ISQLiteDB>();

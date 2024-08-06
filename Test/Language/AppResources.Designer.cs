@@ -77,5 +77,23 @@ namespace Test.Language {
                 return ResourceManager.GetString("EMPLOYEES", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuevo Departamento.
+        /// </summary>
+        internal static string NEW_DEPARTMENT {
+            get {
+                return ResourceManager.GetString("NEW_DEPARTMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuevo Empleado.
+        /// </summary>
+        internal static string NEW_EMPLOYEE {
+            get {
+                return ResourceManager.GetString("NEW_EMPLOYEE", resourceCulture);
+            }
+        }
     }
 }

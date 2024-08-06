@@ -123,4 +123,10 @@
   <data name="EMPLOYEES" xml:space="preserve">
     <value>Empleados</value>
   </data>
+  <data name="NEW_DEPARTMENT" xml:space="preserve">
+    <value>Nuevo Departamento</value>
+  </data>
+  <data name="NEW_EMPLOYEE" xml:space="preserve">
+    <value>Nuevo Empleado</value>
+  </data>
 </root>

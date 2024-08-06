@@ -3,6 +3,7 @@
     xmlns:MainPage="clr-namespace:Test.Pages"
     xmlns:ViewModel="clr-namespace:Test.ViewModels.Employee"
     xmlns:Language="clr-namespace:Test.Language" 
+    Title="{Language:Translate Text=EMPLOYEES}"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Test.Pages.Employee.EmployeesPage">
@@ -21,12 +22,36 @@
     <!--#region Content-->
     <MainPage:BasePage.Content>
         <Grid
-            Padding="16"
-            RowSpacing="16"
-            BackgroundColor="{StaticResource White1}"
             ColumnDefinitions="*"
-            RowDefinitions="auto,auto,*">
-
+            RowDefinitions="*,auto"
+            Padding="16"
+            BackgroundColor="{StaticResource White1}">
+            <RefreshView
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="FillAndExpand"
+                Command="{Binding GetDataCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
+                <ScrollView>
+                    <VerticalStackLayout
+                        Spacing="12"
+                        BindableLayout.ItemsSource="{Binding Data}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label
+                                        Text="{Binding Name}"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </RefreshView>
+            <Button
+                Grid.Row="1"
+                Grid.Column="0"
+                StyleClass="StyleClassButton1"
+                Text="{Language:Translate Text=NEW_EMPLOYEE}"/>
         </Grid>
     </MainPage:BasePage.Content>
     <!--#endregion-->
