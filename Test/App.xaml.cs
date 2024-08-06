@@ -26,7 +26,7 @@ namespace Test
                 {
                     return;
                 }
-                Database = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "test.db3"));
+                Database = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "testW.db3"));
                 await Database.CreateTableAsync<Models.SQLiteDB.Department>();
                 await Database.CreateTableAsync<Models.SQLiteDB.Employee>();
                 await Database.CreateTableAsync<Models.SQLiteDB.Salary>();
