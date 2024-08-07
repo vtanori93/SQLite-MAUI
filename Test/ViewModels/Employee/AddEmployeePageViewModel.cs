@@ -123,6 +123,48 @@ namespace Test.ViewModels.Employee
             if (!IsBusy)
             {
                 IsBusy = true;
+                if (string.IsNullOrEmpty(Name.TrimStart().TrimEnd()))
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
+                if (string.IsNullOrEmpty(EmployeeKey.TrimStart().TrimEnd()))
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
+                if (string.IsNullOrEmpty(DateBirth.TrimStart().TrimEnd()))
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
+                if (string.IsNullOrEmpty(DateOfJoining.TrimStart().TrimEnd()))
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
+                if (string.IsNullOrEmpty(MonthlySalary.TrimStart().TrimEnd()))
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
+                if (string.IsNullOrEmpty(Department.TrimStart().TrimEnd()))
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
+                if (!Transfer && !Cash)
+                {
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    IsBusy = false;
+                    return;
+                }
                 var EmployeeId = Guid.NewGuid();
                 var PaymentMethod = string.Empty;
                 if(Cash && !Transfer)
@@ -134,7 +176,7 @@ namespace Test.ViewModels.Employee
                     PaymentMethod = "Transferencia";
                 }
                 var DateBirthArray = DateBirth.Split("/");
-                var DateOfJoiningArray = DateBirth.Split("/");
+                var DateOfJoiningArray = DateOfJoining.Split("/");
                 var Result1 = await SQLiteDB.PostEmployeeAsync(new Models.SQLiteDB.Employee
                 {
                     Name = Name,

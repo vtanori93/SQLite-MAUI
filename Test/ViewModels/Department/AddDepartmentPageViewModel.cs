@@ -18,7 +18,7 @@ namespace Test.ViewModels.Department
                 IsBusy = true;
                 if (string.IsNullOrEmpty(Description.TrimStart().TrimEnd()))
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
                     IsBusy = false;
                     return;
                 }

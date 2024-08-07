@@ -1,4 +1,5 @@
 ﻿
+using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
 
 namespace Test.ViewModels.Exercise
@@ -13,6 +14,11 @@ namespace Test.ViewModels.Exercise
         }
         public Exercise7PageViewModel()
         {
+            WeakReferenceMessenger.Default.Unregister<List<Models.Exercise.Exercise7>>(this);
+            WeakReferenceMessenger.Default.Register<List<Models.Exercise.Exercise7>>(this, (r, m) =>
+            {
+                Data = new ObservableCollection<Models.Exercise.Exercise7>(m);
+            });
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System.Diagnostics;
-using System.Windows.Input;
-using Newtonsoft.Json;
+﻿using System.Windows.Input;
+using CommunityToolkit.Mvvm.Messaging;
 namespace Test.ViewModels.Home
 {
     public class HomePageViewModel : BaseViewModel
@@ -34,7 +33,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise1Async();
                 if(Result.Data != null && !Result.Error)
                 {
-                    Debug.WriteLine("Exercise 1 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                    WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
             }
@@ -48,7 +47,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise2Async();
                 if (Result.Data != null && !Result.Error)
                 {
-                    Debug.WriteLine("Exercise 2 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                    WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
             }
@@ -62,7 +61,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise3Async();
                 if (Result.Data != null && !Result.Error)
                 {
-                    Debug.WriteLine("Exercise 3 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                    WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
             }
@@ -76,7 +75,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise4Async();
                 if (Result.Data != null && !Result.Error)
                 {
-                    Debug.WriteLine("Exercise 4 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                    WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
             }
@@ -90,7 +89,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise5Async();
                 if (Result.Data != null && !Result.Error)
                 {
-                    Debug.WriteLine("Exercise 5 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                    WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
             }
@@ -104,7 +103,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise6Async();
                 if (Result.Data != null && !Result.Error)
                 {
-                    Debug.WriteLine("Exercise 6 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                    WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
             }
@@ -115,11 +114,7 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-                var Result = await SQLiteDB.GetExercise7Async(Guid.NewGuid());
-                if (Result.Data != null && !Result.Error)
-                {
-                    Debug.WriteLine("Exercise 7 - Result: " + JsonConvert.SerializeObject(Result.Data));
-                }
+                
                 IsBusy = false;
             }
         }

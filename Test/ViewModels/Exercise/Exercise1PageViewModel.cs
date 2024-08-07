@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace Test.ViewModels.Exercise
 {
@@ -11,7 +12,12 @@ namespace Test.ViewModels.Exercise
             set { SetProperty(ref data, value); }
         }
         public Exercise1PageViewModel() 
-        { 
+        {
+            WeakReferenceMessenger.Default.Unregister<List<Models.Exercise.Exercise1>>(this);
+            WeakReferenceMessenger.Default.Register<List<Models.Exercise.Exercise1>>(this, (r, m) =>
+            {
+                Data = new ObservableCollection<Models.Exercise.Exercise1>(m);
+            });
         }
     }
 }
