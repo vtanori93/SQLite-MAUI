@@ -180,5 +180,27 @@ namespace Test.SQLiteDB
             }
             return await Task.FromResult(Response);
         }
+        public async Task<Response<List<Exercise2>>> GetExercise2Async()
+        {
+            var Response = new Response<List<Exercise2>> { Data = new List<Exercise2>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var Departments = await App.Database.Table<Department>().ToListAsync();
+                    var DepartmentIdsWithEmployees = Employees.Select(e => e.DepartmentId).Distinct();
+                    Response.Data = Departments
+                        .Where(d => DepartmentIdsWithEmployees.Contains(d.DepartmentId))
+                        .Select(d => new Exercise2 { Description = d.Description }).ToList();
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
     }
 }

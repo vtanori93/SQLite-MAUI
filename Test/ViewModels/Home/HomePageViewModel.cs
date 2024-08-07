@@ -45,7 +45,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var Result = await SQLiteDB.GetExercise2Async();
+                if (Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 2 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }

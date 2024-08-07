@@ -14,5 +14,6 @@ namespace Test.SQLiteDB
         Task<Response<bool>> DeleteDepartmentAsync(Guid DepartmentId);
         Task<Response<bool>> DeleteEmployeeAsync(Guid EmployeeId);
         Task<Response<List<Exercise1>>> GetExercise1Async();
+        Task<Response<List<Exercise2>>> GetExercise2Async();
     }
 }
