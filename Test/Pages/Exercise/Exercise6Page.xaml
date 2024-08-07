@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MainPage:BasePage
+    xmlns:MainPage="clr-namespace:Test.Pages"
+    xmlns:ViewModel="clr-namespace:Test.ViewModels.Exercise"
+    xmlns:Language="clr-namespace:Test.Language"
+    Title="Ejercicio 6"  
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Test.Pages.Exercise.Exercise6Page">
+    <MainPage:BasePage.BindingContext>
+        <ViewModel:Exercise6PageViewModel/>
+    </MainPage:BasePage.BindingContext>
+    <MainPage:BasePage.Resources>
+        <ResourceDictionary>
+
+        </ResourceDictionary>
+    </MainPage:BasePage.Resources>
+    <MainPage:BasePage.Content>
+        <Grid>
+
+        </Grid>
+    </MainPage:BasePage.Content>
+</MainPage:BasePage>

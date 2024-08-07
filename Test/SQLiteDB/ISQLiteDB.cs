@@ -19,6 +19,6 @@ namespace Test.SQLiteDB
         Task<Response<List<Exercise4>>> GetExercise4Async();
         Task<Response<List<Exercise5>>> GetExercise5Async();
         Task<Response<List<Exercise6>>> GetExercise6Async();
-        Task<Response<List<Exercise7>>> GetExercise7Async();
+        Task<Response<List<Exercise7>>> GetExercise7Async(Guid DepartmentId);
     }
 }

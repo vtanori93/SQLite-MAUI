@@ -320,14 +320,14 @@ namespace Test.SQLiteDB
             }
             return await Task.FromResult(Response);
         }
-        public async Task<Response<List<Exercise7>>> GetExercise7Async()
+        public async Task<Response<List<Exercise7>>> GetExercise7Async(Guid DepartmentId)
         {
             var Response = new Response<List<Exercise7>> { Data = new List<Exercise7>() };
             try
             {
                 if (App.Database != null)
                 {
-                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var Employees = await App.Database.Table<Employee>().Where(e => e.DepartmentId == DepartmentId).ToListAsync();
                     var Salaries = await App.Database.Table<Salary>().ToListAsync();
                     var EmployeesOver30WithHighSalary = from emp in Employees
                                                         join sal in Salaries on emp.EmployeeId equals sal.EmployeeId
@@ -349,7 +349,6 @@ namespace Test.SQLiteDB
                 Response.Error = true;
                 Response.Message = Ex.ToString();
             }
-
             return await Task.FromResult(Response);
         }
     }
