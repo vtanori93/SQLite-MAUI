@@ -136,7 +136,7 @@
                         Grid.Column="1"
                         TextColor="Red"
                         StyleClass="StyleClassLabel1"
-                        Text="Forma de Pago"/>
+                        Text="*"/>
                 </Grid>
                 <Grid
                     ZIndex="1"
