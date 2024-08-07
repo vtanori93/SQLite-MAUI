@@ -25,6 +25,14 @@
                 <Setter Property="TextColor" Value="{StaticResource Black1}"/>
                 <Setter Property="FontFamily" Value="OpenSans-Semibold"/>
             </Style>
+            <Style Class="StyleClassLabel2" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="MaxLines" Value="1"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+                <Setter Property="TextColor" Value="{StaticResource Black1}"/>
+                <Setter Property="FontFamily" Value="OpenSans-Regular"/>
+            </Style>
             <Style TargetType="Image">
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
@@ -57,7 +65,18 @@
                             <DataTemplate>
                                 <Frame>
                                     <VerticalStackLayout>
-                                        
+                                        <Label
+                                            StyleClass="StyleClassLabel1"
+                                            Text="Nombre: "/>
+                                        <Label
+                                            StyleClass="StyleClassLabel2"
+                                            Text="{Binding Name}"/>
+                                        <Label
+                                            StyleClass="StyleClassLabel1"
+                                            Text="Fecha de nacimiento: "/>
+                                        <Label
+                                            StyleClass="StyleClassLabel2"
+                                            Text="{Binding DateBirth, StringFormat='{}{0:MMMM dd, yyyy}'}"/>
                                     </VerticalStackLayout>
                                 </Frame>
                             </DataTemplate>

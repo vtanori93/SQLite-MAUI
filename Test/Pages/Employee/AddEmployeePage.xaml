@@ -77,7 +77,7 @@
                 <CustomEntry:CustomEntry1View 
                     IsDataPicker="True"
                     Title="Fecha de nacimiento"
-                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=BirthDate}"/>
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=DateBirth}"/>
                 <CustomEntry:CustomEntry1View 
                     Title="Departamento"
                     IsCombobox="True"

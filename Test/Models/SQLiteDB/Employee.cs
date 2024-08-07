@@ -9,7 +9,7 @@ namespace Test.Models.SQLiteDB
         public Guid DepartmentId { get; set; }
         public Guid EmployeeId { get; set; }
         public string Name { get; set; } = string.Empty;
-        public DateTime DateTime { get; set; }
+        public DateTime DateBirth { get; set; }
         public DateTime DateOfJoining { get; set; }
     }
 }

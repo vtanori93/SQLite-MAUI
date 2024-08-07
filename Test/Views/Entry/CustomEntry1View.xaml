@@ -67,7 +67,11 @@
                         Grid.Column="0"
                         x:Name="DatePickerSelector1"
                         IsVisible="False"
-                        DateSelected="DatePickerSelector1_DateSelected"/>
+                        DateSelected="DatePickerSelector1_DateSelected">
+                        <DatePicker.Format>
+                            dd/MM/yyyy
+                        </DatePicker.Format>
+                    </DatePicker>
                     <Image
                         x:Name="ComboboxImage"
                         IsVisible="False"

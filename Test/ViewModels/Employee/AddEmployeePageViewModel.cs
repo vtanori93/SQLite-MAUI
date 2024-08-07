@@ -40,17 +40,17 @@ namespace Test.ViewModels.Employee
             get { return employeeKey; }
             set { SetProperty(ref employeeKey, value); }
         }
-        string dateOfJoining = string.Empty;
+        string dateOfJoining = DateTime.Now.ToString("dd/MM/yyyy");
         public string DateOfJoining
         {
             get { return dateOfJoining; }
             set { SetProperty(ref dateOfJoining, value); }
         }
-        string birthDate = string.Empty;
-        public string BirthDate
+        string dateBirth = DateTime.Now.ToString("dd/MM/yyyy");
+        public string DateBirth
         {
-            get { return birthDate; }
-            set { SetProperty(ref birthDate, value); }
+            get { return dateBirth; }
+            set { SetProperty(ref dateBirth, value); }
         }
         string monthlySalary = string.Empty;
         public string MonthlySalary
@@ -123,7 +123,37 @@ namespace Test.ViewModels.Employee
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var EmployeeId = Guid.NewGuid();
+                var PaymentMethod = string.Empty;
+                if(Cash && !Transfer)
+                {
+                    PaymentMethod = "Efectivo";
+                }
+                else
+                {
+                    PaymentMethod = "Transferencia";
+                }
+                var Result1 = await SQLiteDB.PostEmployeeAsync(new Models.SQLiteDB.Employee
+                {
+                    Name = Name,
+                    DateBirth = Convert.ToDateTime(DateBirth),
+                    DateOfJoining = Convert.ToDateTime(DateOfJoining),
+                    DepartmentId = SelectedItemList1Object.DepartmentId,
+                    EmployeeId = EmployeeId
+                });
+                if(Result1.Data && !Result1.Error)
+                {
+                    var Result2 = await SQLiteDB.PostSalaryAsync(new Models.SQLiteDB.Salary
+                    {
+                        EmployeeId = EmployeeId,
+                        MonthlySalary = MonthlySalary,
+                        PaymentMethod = PaymentMethod
+                    });
+                    if(Result2.Data && !Result2.Error)
+                    {
+                        await Shell.Current.Navigation.PopAsync();
+                    }
+                }
                 IsBusy = false;
             }
         }

@@ -75,7 +75,6 @@ public partial class CustomEntry1View : ContentView
         {
             Control.InputEntry.IsVisible = false;
             Control.DatePickerSelector1.IsVisible = true;
-            Control.DatePickerSelector1.MaximumDate = DateTime.Now.AddYears(-18);
         }
     }
     private void DatePickerSelector1_DateSelected(object sender, DateChangedEventArgs e)
