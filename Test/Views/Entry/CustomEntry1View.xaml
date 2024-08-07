@@ -46,8 +46,21 @@
     <ContentView.Content>
         <VerticalStackLayout
             Spacing="8">
-            <Label
-                x:Name="TitleLabel"/>
+            <Grid
+                RowDefinitions="auto"
+                ColumnDefinitions="auto,auto">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    x:Name="TitleLabel"/>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="*"
+                    TextColor="Red"
+                    x:Name="RequiredField"
+                    IsVisible="False"/>
+            </Grid>
             <Frame>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer

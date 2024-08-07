@@ -27,6 +27,7 @@
             <VerticalStackLayout
                 Spacing="16">
                 <CustomEntry:CustomEntry1View 
+                    IsRequiredField="True"
                     Title="{Language:Translate Text=DESCRIPTION}"
                     Text="{Binding Description}"/>
                 <Button

@@ -125,43 +125,37 @@ namespace Test.ViewModels.Employee
                 IsBusy = true;
                 if (string.IsNullOrEmpty(Name.TrimStart().TrimEnd()))
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre válido.");
                     IsBusy = false;
                     return;
                 }
                 if (string.IsNullOrEmpty(EmployeeKey.TrimStart().TrimEnd()))
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa una clave de empleado válida.");
                     IsBusy = false;
                     return;
                 }
                 if (string.IsNullOrEmpty(DateBirth.TrimStart().TrimEnd()))
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa una fecha de nacimiento válida.");
                     IsBusy = false;
                     return;
                 }
                 if (string.IsNullOrEmpty(DateOfJoining.TrimStart().TrimEnd()))
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa una fecha de ingreso válida.");
                     IsBusy = false;
                     return;
                 }
                 if (string.IsNullOrEmpty(MonthlySalary.TrimStart().TrimEnd()))
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
-                    IsBusy = false;
-                    return;
-                }
-                if (string.IsNullOrEmpty(Department.TrimStart().TrimEnd()))
-                {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un salario válido.");
                     IsBusy = false;
                     return;
                 }
                 if (!Transfer && !Cash)
                 {
-                    await Helpers.Function.ShowMessageAsync("Para continuar, ingresa un nombre de departamento válido.");
+                    await Helpers.Function.ShowMessageAsync("Para continuar, selecciona un método de pago válido.");
                     IsBusy = false;
                     return;
                 }

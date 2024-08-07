@@ -66,17 +66,21 @@
                 Spacing="16">
                 <CustomEntry:CustomEntry1View 
                     Title="Clave del empleado"
+                    IsRequiredField="True"
                     Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=EmployeeKey}"/>
                 <CustomEntry:CustomEntry1View 
                     Title="Nombre del empleado"
+                    IsRequiredField="True"
                     Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=Name}"/>
                 <CustomEntry:CustomEntry1View 
                     IsDataPicker="True"
                     Title="Fecha de ingreso"
+                    IsRequiredField="True"
                     Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=DateOfJoining}"/>
                 <CustomEntry:CustomEntry1View 
                     IsDataPicker="True"
                     Title="Fecha de nacimiento"
+                    IsRequiredField="True"
                     Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=DateBirth}"/>
                 <CustomEntry:CustomEntry1View 
                     Title="Departamento"
@@ -115,12 +119,25 @@
                     </VerticalStackLayout>
                 </Frame>
                 <CustomEntry:CustomEntry1View 
+                    IsRequiredField="True"
                     Title="Sueldo del Empleado"
                     IsKeyboardNumeric="True"
                     Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=MonthlySalary}"/>
-                <Label
-                    StyleClass="StyleClassLabel1"
-                    Text="Forma de Pago"/>
+                <Grid
+                    ColumnDefinitions="auto,auto"
+                    RowDefinitions="auto">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        StyleClass="StyleClassLabel1"
+                        Text="Forma de Pago"/>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        TextColor="Red"
+                        StyleClass="StyleClassLabel1"
+                        Text="Forma de Pago"/>
+                </Grid>
                 <Grid
                     ZIndex="1"
                     ColumnSpacing="8"

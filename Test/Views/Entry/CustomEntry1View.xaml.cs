@@ -131,4 +131,26 @@ public partial class CustomEntry1View : ContentView
             Command?.Execute(null);
         }
     }
+
+
+    public bool IsRequiredField
+    {
+        get => (bool)GetValue(IsRequiredFieldProperty);
+        set => SetValue(IsRequiredFieldProperty, value);
+    }
+    public static readonly BindableProperty IsRequiredFieldProperty = BindableProperty.Create(
+                                                     propertyName: nameof(IsRequiredField),
+                                                     returnType: typeof(bool),
+                                                     declaringType: typeof(CustomEntry1View),
+                                                     defaultValue: false,
+                                                     defaultBindingMode: BindingMode.TwoWay,
+                                                     propertyChanged: IsRequiredFieldPropertyChanged);
+    private static void IsRequiredFieldPropertyChanged(BindableObject bendable, object oldValue, object newValue)
+    {
+        var Control = (CustomEntry1View)bendable;
+        if ((bool)newValue)
+        {
+            Control.RequiredField.IsVisible = true;
+        }
+    }
 }
