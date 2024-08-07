@@ -67,7 +67,7 @@
                                     <Grid
                                         ColumnSpacing="12"
                                         RowDefinitions="auto"
-                                        ColumnDefinitions="*,auto,auto">
+                                        ColumnDefinitions="*,auto">
                                         <VerticalStackLayout
                                             Grid.Row="0"
                                             Grid.Column="0">
@@ -87,10 +87,6 @@
                                         <Image
                                             Grid.Row="0"
                                             Grid.Column="1"
-                                            Source="edit"/>
-                                        <Image
-                                            Grid.Row="0"
-                                            Grid.Column="2"
                                             Source="delete">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer
