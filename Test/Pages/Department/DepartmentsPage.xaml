@@ -57,8 +57,9 @@
                             <DataTemplate>
                                 <Frame>
                                     <Grid
+                                        RowSpacing="16"
                                         ColumnSpacing="12"
-                                        RowDefinitions="auto"
+                                        RowDefinitions="auto,auto"
                                         ColumnDefinitions="*,auto,auto">
                                         <Label
                                             Grid.Row="0"
@@ -79,6 +80,13 @@
                                                     CommandParameter="{Binding .}"/>
                                             </Image.GestureRecognizers>
                                         </Image>
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="3"
+                                            Text="{Language:Translate Text=EXERCISE_7}"
+                                            StyleClass="StyleClassButton1"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:DepartmentsPageViewModel}}, Path=ItemExercise7Tapped}"
+                                            CommandParameter="{Binding .}"/>
                                     </Grid>
                                 </Frame>
                             </DataTemplate>

@@ -76,13 +76,7 @@
                      StyleClass="StyleClassButton1"
                      Command="{Binding Exercise6Command}"
                      Text="{Language:Translate Text=EXERCISE_6}"/>
-                <Button
-                     Grid.Row="8"
-                     Grid.Column="0"
-                     StyleClass="StyleClassButton1"
-                     Command="{Binding Exercise7Command}"
-                     Text="{Language:Translate Text=EXERCISE_7}"/>
-        </Grid>
+            </Grid>
         </ScrollView>
     </MainPage:BasePage.Content>
     <!--#endregion-->

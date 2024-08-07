@@ -15,8 +15,9 @@ namespace Test.ViewModels.Exercise
         public Exercise6PageViewModel()
         {
             WeakReferenceMessenger.Default.Unregister<List<Models.Exercise.Exercise6>>(this);
-            WeakReferenceMessenger.Default.Register<List<Models.Exercise.Exercise6>>(this, (r, m) =>
+            WeakReferenceMessenger.Default.Register<List<Models.Exercise.Exercise6>>(this, async (r, m) =>
             {
+                await Task.Delay(250);
                 Data = new ObservableCollection<Models.Exercise.Exercise6>(m);
             });
         }

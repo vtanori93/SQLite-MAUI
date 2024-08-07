@@ -33,6 +33,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise1Async();
                 if(Result.Data != null && !Result.Error)
                 {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise1Page());
                     WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
@@ -47,6 +48,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise2Async();
                 if (Result.Data != null && !Result.Error)
                 {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise2Page());
                     WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
@@ -61,6 +63,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise3Async();
                 if (Result.Data != null && !Result.Error)
                 {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise3Page());
                     WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
@@ -75,6 +78,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise4Async();
                 if (Result.Data != null && !Result.Error)
                 {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise4Page());
                     WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
@@ -89,6 +93,7 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise5Async();
                 if (Result.Data != null && !Result.Error)
                 {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise5Page());
                     WeakReferenceMessenger.Default.Send(Result.Data);
                 }
                 IsBusy = false;
@@ -103,18 +108,9 @@ namespace Test.ViewModels.Home
                 var Result = await SQLiteDB.GetExercise6Async();
                 if (Result.Data != null && !Result.Error)
                 {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise6Page());
                     WeakReferenceMessenger.Default.Send(Result.Data);
                 }
-                IsBusy = false;
-            }
-        }
-        public ICommand Exercise7Command => new Command(async (e) => { await ExecuteExercise7CommandAsync(); });
-        private async Task ExecuteExercise7CommandAsync()
-        {
-            if (!IsBusy)
-            {
-                IsBusy = true;
-                
                 IsBusy = false;
             }
         }

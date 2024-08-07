@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace Test.ViewModels.Department
 {
@@ -24,10 +25,22 @@ namespace Test.ViewModels.Department
             }
         }
         public Command<Models.SQLiteDB.Department> ItemDepartmentTapped { get; }
+        Models.SQLiteDB.Department selectedExercise7 = new Models.SQLiteDB.Department();
+        public Models.SQLiteDB.Department SelectedExercise7
+        {
+            get => selectedExercise7;
+            set
+            {
+                SetProperty(ref selectedExercise7, value);
+                OnItemExercise7Selected(value);
+            }
+        }
+        public Command<Models.SQLiteDB.Department> ItemExercise7Tapped { get; }
         #endregion
         #region Constructor
         public DepartmentsPageViewModel()
         {
+            ItemExercise7Tapped = new Command<Models.SQLiteDB.Department>(OnItemExercise7Selected);
             ItemDepartmentTapped = new Command<Models.SQLiteDB.Department>(OnItemDepartmentSelected);
             GetDataCommand?.Execute(null);
         }
@@ -80,6 +93,20 @@ namespace Test.ViewModels.Department
                 {
                     await Helpers.Function.ShowMessageAsync(DeleteResult.Message);
                 }
+            }
+        }
+        async void OnItemExercise7Selected(Models.SQLiteDB.Department Value)
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                var Result = await SQLiteDB.GetExercise7Async(Value.DepartmentId);
+                if(Result.Data != null)
+                {
+                    await Shell.Current.Navigation.PushAsync(new Pages.Exercise.Exercise7Page());
+                    WeakReferenceMessenger.Default.Send(Result.Data);
+                }
+                IsBusy = false;
             }
         }
         #endregion

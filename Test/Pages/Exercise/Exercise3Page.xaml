@@ -16,8 +16,53 @@
         </ResourceDictionary>
     </MainPage:BasePage.Resources>
     <MainPage:BasePage.Content>
-        <Grid>
-
+        <Grid
+            ColumnDefinitions="*"
+            RowDefinitions="*"
+            Padding="16"
+            BackgroundColor="{StaticResource White1}">
+            <RefreshView
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="FillAndExpand"
+                Command="{Binding GetDataCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
+                <ScrollView>
+                    <VerticalStackLayout
+                        Spacing="12"
+                        BindableLayout.ItemsSource="{Binding Data}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    StyleClass="StyleClassGlobalFrame1">
+                                    <VerticalStackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0">
+                                        <Label
+                                            StyleClass="StyleClassGlobalLabel1"
+                                            Text="Descripción: "/>
+                                        <Label
+                                            StyleClass="StyleClassGlobalLabel2"
+                                            Text="{Binding DepartmentDescription}"/>
+                                        <Label
+                                            StyleClass="StyleClassGlobalLabel1"
+                                            Text="Método de pago: "/>
+                                        <Label
+                                            StyleClass="StyleClassGlobalLabel2"
+                                            Text="{Binding PaymentMethod}"/>
+                                        <Label
+                                            StyleClass="StyleClassGlobalLabel1"
+                                            Text="Salario mensual: "/>
+                                        <Label
+                                            StyleClass="StyleClassGlobalLabel2"
+                                            Text="{Binding TotalSalary}"/>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </RefreshView>
         </Grid>
     </MainPage:BasePage.Content>
 </MainPage:BasePage>
