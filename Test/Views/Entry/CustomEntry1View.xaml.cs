@@ -1,6 +1,4 @@
 namespace Test.Views.Entry;
-
-using Microsoft.Maui.Platform;
 #region EntryHandler
 #if ANDROID
 using Android.Content.Res;
@@ -97,7 +95,15 @@ public partial class CustomEntry1View : ContentView
     private static void IsDataPickerPropertyChanged(BindableObject bendable, object oldValue, object newValue)
     {
         var Control = (CustomEntry1View)bendable;
-        Control.InputEntry.IsVisible = false;
-        Control.DatePicker1.IsVisible = true;
+        if ((bool)newValue)
+        {
+            Control.InputEntry.IsVisible = false;
+            Control.DatePickerSelector1.IsVisible = true;
+            Control.DatePickerSelector1.MaximumDate = DateTime.Now.AddYears(-18);
+        }
+    }
+    private void DatePickerSelector1_DateSelected(object sender, DateChangedEventArgs e)
+    {
+        Text = DatePickerSelector1.Date.ToString("dd/MM/yyyy");
     }
 }

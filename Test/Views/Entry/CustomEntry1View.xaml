@@ -52,10 +52,9 @@
                         x:Name="InputEntry"
                         TextChanged="InputEntry_TextChanged"/>
                     <DatePicker 
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        x:Name="DatePicker1"
-                        IsVisible="False"/>
+                        x:Name="DatePickerSelector1"
+                        IsVisible="False"
+                        DateSelected="DatePickerSelector1_DateSelected"/>
                 </Grid>
             </Frame>
         </VerticalStackLayout>
