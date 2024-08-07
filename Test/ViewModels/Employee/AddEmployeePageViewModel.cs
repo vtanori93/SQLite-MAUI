@@ -133,11 +133,13 @@ namespace Test.ViewModels.Employee
                 {
                     PaymentMethod = "Transferencia";
                 }
+                var DateBirthArray = DateBirth.Split("/");
+                var DateOfJoiningArray = DateBirth.Split("/");
                 var Result1 = await SQLiteDB.PostEmployeeAsync(new Models.SQLiteDB.Employee
                 {
                     Name = Name,
-                    DateBirth = Convert.ToDateTime(DateBirth),
-                    DateOfJoining = Convert.ToDateTime(DateOfJoining),
+                    DateBirth = new DateTime(Convert.ToInt16(DateBirthArray[2]), Convert.ToInt16(DateBirthArray[1]), Convert.ToInt16(DateBirthArray[0])),
+                    DateOfJoining = new DateTime(Convert.ToInt16(DateOfJoiningArray[2]), Convert.ToInt16(DateOfJoiningArray[1]), Convert.ToInt16(DateOfJoiningArray[0])),
                     DepartmentId = SelectedItemList1Object.DepartmentId,
                     EmployeeId = EmployeeId
                 });

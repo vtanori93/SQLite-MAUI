@@ -129,6 +129,27 @@
   <data name="EMPLOYEES" xml:space="preserve">
     <value>Empleados</value>
   </data>
+  <data name="EXERCISE_1" xml:space="preserve">
+    <value>Ejercicio 1</value>
+  </data>
+  <data name="EXERCISE_2" xml:space="preserve">
+    <value>Ejercicio 2</value>
+  </data>
+  <data name="EXERCISE_3" xml:space="preserve">
+    <value>Ejercicio 3</value>
+  </data>
+  <data name="EXERCISE_4" xml:space="preserve">
+    <value>Ejercicio 4</value>
+  </data>
+  <data name="EXERCISE_5" xml:space="preserve">
+    <value>Ejercicio 5</value>
+  </data>
+  <data name="EXERCISE_6" xml:space="preserve">
+    <value>Ejercicio 6</value>
+  </data>
+  <data name="EXERCISE_7" xml:space="preserve">
+    <value>Ejercicio 7</value>
+  </data>
   <data name="NEW_DEPARTMENT" xml:space="preserve">
     <value>Nuevo Departamento</value>
   </data>

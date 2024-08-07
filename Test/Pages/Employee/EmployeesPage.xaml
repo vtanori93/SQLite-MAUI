@@ -64,20 +64,41 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <Frame>
-                                    <VerticalStackLayout>
-                                        <Label
-                                            StyleClass="StyleClassLabel1"
-                                            Text="Nombre: "/>
-                                        <Label
-                                            StyleClass="StyleClassLabel2"
-                                            Text="{Binding Name}"/>
-                                        <Label
-                                            StyleClass="StyleClassLabel1"
-                                            Text="Fecha de nacimiento: "/>
-                                        <Label
-                                            StyleClass="StyleClassLabel2"
-                                            Text="{Binding DateBirth, StringFormat='{}{0:MMMM dd, yyyy}'}"/>
-                                    </VerticalStackLayout>
+                                    <Grid
+                                        ColumnSpacing="12"
+                                        RowDefinitions="auto"
+                                        ColumnDefinitions="*,auto,auto">
+                                        <VerticalStackLayout
+                                            Grid.Row="0"
+                                            Grid.Column="0">
+                                            <Label
+                                                StyleClass="StyleClassLabel1"
+                                                Text="Nombre: "/>
+                                            <Label
+                                                StyleClass="StyleClassLabel2"
+                                                Text="{Binding Name}"/>
+                                            <Label
+                                                StyleClass="StyleClassLabel1"
+                                                Text="Fecha de nacimiento: "/>
+                                            <Label
+                                                StyleClass="StyleClassLabel2"
+                                                Text="{Binding DateBirth, StringFormat='{}{0:MMMM dd, yyyy}'}"/>
+                                        </VerticalStackLayout>
+                                        <Image
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Source="edit"/>
+                                        <Image
+                                            Grid.Row="0"
+                                            Grid.Column="2"
+                                            Source="delete">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:EmployeesPageViewModel}}, Path=ItemEmployeeTapped}"
+                                                    CommandParameter="{Binding .}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </Grid>
                                 </Frame>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

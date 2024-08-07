@@ -66,10 +66,10 @@
                 Spacing="16">
                 <CustomEntry:CustomEntry1View 
                     Title="Clave del empleado"
-                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=Name}"/>
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=EmployeeKey}"/>
                 <CustomEntry:CustomEntry1View 
                     Title="Nombre del empleado"
-                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=EmployeeKey}"/>
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=Name}"/>
                 <CustomEntry:CustomEntry1View 
                     IsDataPicker="True"
                     Title="Fecha de ingreso"

@@ -97,6 +97,69 @@ namespace Test.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 1.
+        /// </summary>
+        internal static string EXERCISE_1 {
+            get {
+                return ResourceManager.GetString("EXERCISE_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 2.
+        /// </summary>
+        internal static string EXERCISE_2 {
+            get {
+                return ResourceManager.GetString("EXERCISE_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 3.
+        /// </summary>
+        internal static string EXERCISE_3 {
+            get {
+                return ResourceManager.GetString("EXERCISE_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 4.
+        /// </summary>
+        internal static string EXERCISE_4 {
+            get {
+                return ResourceManager.GetString("EXERCISE_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 5.
+        /// </summary>
+        internal static string EXERCISE_5 {
+            get {
+                return ResourceManager.GetString("EXERCISE_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 6.
+        /// </summary>
+        internal static string EXERCISE_6 {
+            get {
+                return ResourceManager.GetString("EXERCISE_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ejercicio 7.
+        /// </summary>
+        internal static string EXERCISE_7 {
+            get {
+                return ResourceManager.GetString("EXERCISE_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nuevo Departamento.
         /// </summary>
         internal static string NEW_DEPARTMENT {

@@ -21,25 +21,69 @@
     <!--#endregion-->
     <!--#region Content-->
     <MainPage:BasePage.Content>
-        <Grid
+        <ScrollView
             Padding="16"
-            RowSpacing="16"
-            BackgroundColor="{StaticResource White1}"
-            ColumnDefinitions="*"
-            RowDefinitions="auto,auto,*">
-            <Button
-                Grid.Row="0"
-                Grid.Column="0"
-                StyleClass="StyleClassButton1"
-                Command="{Binding EmployessCommand}"
-                Text="{Language:Translate Text=EMPLOYEES}"/>
-            <Button
-                Grid.Row="1"
-                Grid.Column="0"
-                StyleClass="StyleClassButton1"
-                Command="{Binding DeparmentsCommand}"
-                Text="{Language:Translate Text=DEPARTMENTS}"/>
+            BackgroundColor="{StaticResource White1}">
+            <Grid
+                RowSpacing="16"
+                ColumnDefinitions="*"
+                RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto,*">
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    StyleClass="StyleClassButton1"
+                    Command="{Binding EmployessCommand}"
+                    Text="{Language:Translate Text=EMPLOYEES}"/>
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    StyleClass="StyleClassButton1"
+                    Command="{Binding DeparmentsCommand}"
+                    Text="{Language:Translate Text=DEPARTMENTS}"/>
+                <Button
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_1}"/>
+                <Button
+                     Grid.Row="3"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_2}"/>
+                <Button
+                     Grid.Row="4"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_3}"/>
+                <Button
+                     Grid.Row="5"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_4}"/>
+                <Button
+                     Grid.Row="6"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_5}"/>
+                <Button
+                     Grid.Row="7"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_6}"/>
+                <Button
+                     Grid.Row="8"
+                     Grid.Column="0"
+                     StyleClass="StyleClassButton1"
+                     Command="{Binding DeparmentsCommand}"
+                     Text="{Language:Translate Text=EXERCISE_7}"/>
         </Grid>
+        </ScrollView>
     </MainPage:BasePage.Content>
     <!--#endregion-->
 </MainPage:BasePage>
