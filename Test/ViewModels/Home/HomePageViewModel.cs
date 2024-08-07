@@ -115,7 +115,7 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-                var Result = await SQLiteDB.GetExercise7Async();
+                var Result = await SQLiteDB.GetExercise7Async(Guid.NewGuid());
                 if (Result.Data != null && !Result.Error)
                 {
                     Debug.WriteLine("Exercise 7 - Result: " + JsonConvert.SerializeObject(Result.Data));
