@@ -27,29 +27,29 @@ namespace Test.ViewModels.Employee
             get { return employeeKey; }
             set { SetProperty(ref employeeKey, value); }
         }
-        string birthDate = string.Empty;
-        public string BirthDate
-        {
-            get { return birthDate; }
-            set { SetProperty(ref birthDate, value); }
-        }
         string dateOfJoining = string.Empty;
         public string DateOfJoining
         {
             get { return dateOfJoining; }
             set { SetProperty(ref dateOfJoining, value); }
         }
-        string paymentMethod = string.Empty;
-        public string PaymentMethod
+        string birthDate = string.Empty;
+        public string BirthDate
         {
-            get { return paymentMethod; }
-            set { SetProperty(ref paymentMethod, value); }
+            get { return birthDate; }
+            set { SetProperty(ref birthDate, value); }
         }
         string monthlySalary = string.Empty;
         public string MonthlySalary
         {
             get { return monthlySalary; }
             set { SetProperty(ref monthlySalary, value); }
+        }
+        string department = "Seleccione una opción";
+        public string Department
+        {
+            get { return department; }
+            set { SetProperty(ref department, value); }
         }
         public ICommand ToggleTransferCommand => new Command((e) => { ExecuteToggleTransferCommand(); });
         private void ExecuteToggleTransferCommand()

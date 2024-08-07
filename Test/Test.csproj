@@ -39,6 +39,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\delete.svg" />
 	  <None Remove="Resources\Images\edit.svg" />
+	  <None Remove="Resources\Images\expand.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

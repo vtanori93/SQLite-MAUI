@@ -70,4 +70,25 @@ public partial class CustomEntry1View : ContentView
     {
         Text = DatePickerSelector1.Date.ToString("dd/MM/yyyy");
     }
+    public bool IsCombobox
+    {
+        get => (bool)GetValue(IsComboboxProperty);
+        set => SetValue(IsComboboxProperty, value);
+    }
+    public static readonly BindableProperty IsComboboxProperty = BindableProperty.Create(
+                                                     propertyName: nameof(IsCombobox),
+                                                     returnType: typeof(bool),
+                                                     declaringType: typeof(CustomEntry1View),
+                                                     defaultValue: false,
+                                                     defaultBindingMode: BindingMode.TwoWay,
+                                                     propertyChanged: IsComboboxPropertyChanged);
+    private static void IsComboboxPropertyChanged(BindableObject bendable, object oldValue, object newValue)
+    {
+        var Control = (CustomEntry1View)bendable;
+        if ((bool)newValue)
+        {
+            Control.InputEntry.InputTransparent = true;
+            Control.ComboboxImage.IsVisible = true;
+        }
+    }
 }

@@ -34,6 +34,12 @@
                 <Setter Property="FontFamily" Value="OpenSans-Regular"/>
                 <Setter Property="TextColor" Value="{StaticResource Black1}"/>
             </Style>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="26"/>
+                <Setter Property="HeightRequest" Value="14"/>
+            </Style>
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
@@ -56,6 +62,12 @@
                         x:Name="DatePickerSelector1"
                         IsVisible="False"
                         DateSelected="DatePickerSelector1_DateSelected"/>
+                    <Image
+                        x:Name="ComboboxImage"
+                        IsVisible="False"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Source="expand"/>
                 </Grid>
             </Frame>
         </VerticalStackLayout>

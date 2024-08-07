@@ -48,19 +48,26 @@
             <VerticalStackLayout
                 Spacing="16">
                 <CustomEntry:CustomEntry1View 
-                    Title="Clave del empleado"/>
+                    Title="Clave del empleado"
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=Name}"/>
                 <CustomEntry:CustomEntry1View 
-                    Title="Nombre del empleado"/>
+                    Title="Nombre del empleado"
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=EmployeeKey}"/>
                 <CustomEntry:CustomEntry1View 
                     IsDataPicker="True"
-                    Title="Fecha de ingreso"/>
+                    Title="Fecha de ingreso"
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=DateOfJoining}"/>
                 <CustomEntry:CustomEntry1View 
                     IsDataPicker="True"
-                    Title="Fecha de nacimiento"/>
+                    Title="Fecha de nacimiento"
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=BirthDate}"/>
                 <CustomEntry:CustomEntry1View 
-                    Title="Departamento"/>
+                    Title="Departamento"
+                    IsCombobox="True"
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=Department}"/>
                 <CustomEntry:CustomEntry1View 
-                    Title="Sueldo del Empleado"/>
+                    Title="Sueldo del Empleado"
+                    Text="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=MonthlySalary}"/>
                 <Label
                     StyleClass="StyleClassLabel1"
                     Text="Forma de Pago"/>
