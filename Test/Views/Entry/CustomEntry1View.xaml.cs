@@ -1,3 +1,5 @@
+using System.Windows.Input;
+
 namespace Test.Views.Entry;
 public partial class CustomEntry1View : ContentView
 {
@@ -5,6 +7,16 @@ public partial class CustomEntry1View : ContentView
 	{
 		InitializeComponent();
     }
+    public ICommand Command
+    {
+        get { return (ICommand)GetValue(CommandProperty); }
+        set { SetValue(CommandProperty, value); }
+    }
+
+    public static readonly BindableProperty CommandProperty = BindableProperty.Create(
+                                                        nameof(Command),
+                                                        typeof(ICommand),
+                                                        typeof(CustomEntry1View), null);
     public string Title
     {
         get => (string)GetValue(TitleProperty);
@@ -88,7 +100,36 @@ public partial class CustomEntry1View : ContentView
         if ((bool)newValue)
         {
             Control.InputEntry.InputTransparent = true;
+            Control.ComboboxImage.InputTransparent = true;
             Control.ComboboxImage.IsVisible = true;
+        }
+    }
+    public bool IsKeyboardNumeric
+    {
+        get => (bool)GetValue(IsKeyboardNumericProperty);
+        set => SetValue(IsKeyboardNumericProperty, value);
+    }
+    public static readonly BindableProperty IsKeyboardNumericProperty = BindableProperty.Create(
+                                                     propertyName: nameof(IsKeyboardNumeric),
+                                                     returnType: typeof(bool),
+                                                     declaringType: typeof(CustomEntry1View),
+                                                     defaultValue: false,
+                                                     defaultBindingMode: BindingMode.TwoWay,
+                                                     propertyChanged: IsKeyboardNumericPropertyChanged);
+    private static void IsKeyboardNumericPropertyChanged(BindableObject bendable, object oldValue, object newValue)
+    {
+        var Control = (CustomEntry1View)bendable;
+        if ((bool)newValue)
+        {
+            Control.InputEntry.Keyboard = Keyboard.Numeric;
+        }
+    }
+
+    private void ComboboxCommand_Tapped(object sender, TappedEventArgs e)
+    {
+        if (IsCombobox)
+        {
+            Command?.Execute(null);
         }
     }
 }

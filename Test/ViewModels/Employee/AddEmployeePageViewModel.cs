@@ -1,8 +1,21 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 namespace Test.ViewModels.Employee
 {
     public class AddEmployeePageViewModel : BaseViewModel
     {
+        ObservableCollection<Models.SQLiteDB.Department> list1 = new ObservableCollection<Models.SQLiteDB.Department>(); 
+        public ObservableCollection<Models.SQLiteDB.Department> List1
+        {
+            get { return list1; }
+            set { SetProperty(ref list1, value); }
+        }
+        bool isVisibleList1 = false;
+        public bool IsVisibleList1
+        {
+            get { return isVisibleList1; }
+            set { SetProperty(ref isVisibleList1, value); }
+        }
         bool transfer = false;
         public bool Transfer
         {
@@ -51,6 +64,24 @@ namespace Test.ViewModels.Employee
             get { return department; }
             set { SetProperty(ref department, value); }
         }
+        public AddEmployeePageViewModel()
+        {
+            GetDataCommand?.Execute(null);
+        }
+        public ICommand GetDataCommand => new Command((e) => { ExecuteGetDataCommandAsync(); });
+        private async void ExecuteGetDataCommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                var Result = await SQLiteDB.GetDepartmentAsync();
+                if (!Result.Error && Result.Data != null)
+                {
+                    List1 = new ObservableCollection<Models.SQLiteDB.Department>(Result.Data);
+                }
+                IsBusy = false;
+            }
+        }
         public ICommand ToggleTransferCommand => new Command((e) => { ExecuteToggleTransferCommand(); });
         private void ExecuteToggleTransferCommand()
         {
@@ -80,6 +111,16 @@ namespace Test.ViewModels.Employee
             {
                 IsBusy = true;
 
+                IsBusy = false;
+            }
+        }
+        public ICommand ToggleList1 => new Command((e) => { ExecuteToggleList1(); });
+        private void ExecuteToggleList1()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                IsVisibleList1 = !IsVisibleList1;
                 IsBusy = false;
             }
         }

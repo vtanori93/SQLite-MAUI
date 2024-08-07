@@ -27,6 +27,7 @@
             <Style TargetType="Entry">
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontFamily" Value="OpenSans-Regular"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="TextColor" Value="{StaticResource Black1}"/>
             </Style>
             <Style TargetType="DatePicker">
@@ -48,6 +49,11 @@
             <Label
                 x:Name="TitleLabel"/>
             <Frame>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
+                        x:Name="ComboboxCommand"
+                        Tapped="ComboboxCommand_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Grid
                     RowDefinitions="auto"
                     ColumnDefinitions="*">
