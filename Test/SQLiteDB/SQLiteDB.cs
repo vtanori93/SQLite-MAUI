@@ -202,5 +202,155 @@ namespace Test.SQLiteDB
             }
             return await Task.FromResult(Response);
         }
+        public async Task<Response<List<Exercise3>>> GetExercise3Async()
+        {
+            var Response = new Response<List<Exercise3>> { Data = new List<Exercise3>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var Departments = await App.Database.Table<Department>().ToListAsync();
+                    var Salaries = await App.Database.Table<Salary>().ToListAsync();
+
+                    var DepartmentSalaries = from emp in Employees
+                                             join sal in Salaries on emp.EmployeeId equals sal.EmployeeId
+                                             join dep in Departments on emp.DepartmentId equals dep.DepartmentId
+                                             group new { dep, sal } by new { dep.DepartmentId, dep.Description, sal.PaymentMethod } into g
+                                             select new Exercise3
+                                             {
+                                                 DepartmentId = g.Key.DepartmentId,
+                                                 DepartmentDescription = g.Key.Description,
+                                                 PaymentMethod = g.Key.PaymentMethod,
+                                                 TotalSalary = g.Sum(x => decimal.Parse(x.sal.MonthlySalary))
+                                             };
+                    Response.Data = DepartmentSalaries.ToList();
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Exercise4>>> GetExercise4Async()
+        {
+            var Response = new Response<List<Exercise4>> { Data = new List<Exercise4>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var Salaries = await App.Database.Table<Salary>().ToListAsync();
+                    var EmployeesOver30WithHighSalary = from emp in Employees
+                                                        join sal in Salaries on emp.EmployeeId equals sal.EmployeeId
+                                                        where (DateTime.Now.Year - emp.DateBirth.Year) > 30 && decimal.Parse(sal.MonthlySalary) > 6000
+                                                        orderby decimal.Parse(sal.MonthlySalary) descending
+                                                        select new Exercise4
+                                                        {
+                                                            EmployeeId = emp.EmployeeId,
+                                                            Name = emp.Name,
+                                                            DateBirth = emp.DateBirth,
+                                                            MonthlySalary = decimal.Parse(sal.MonthlySalary)
+                                                        };
+                    Response.Data = EmployeesOver30WithHighSalary.ToList();
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Exercise5>>> GetExercise5Async()
+        {
+            var Response = new Response<List<Exercise5>> { Data = new List<Exercise5>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var currentYear = DateTime.Now.Year;
+                    var EmployeesJoinedThisYear = Employees
+                        .Where(emp => emp.DateOfJoining.Year == currentYear)
+                        .Select(emp => new Exercise5
+                        {
+                            EmployeeId = emp.EmployeeId,
+                            Name = emp.Name,
+                            DateOfJoining = emp.DateOfJoining
+                        }).ToList();
+
+                    Response.Data = EmployeesJoinedThisYear;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Exercise6>>> GetExercise6Async()
+        {
+            var Response = new Response<List<Exercise6>> { Data = new List<Exercise6>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var currentDate = DateTime.Now;
+                    var EmployeesWithAge = Employees
+                        .Select(emp => new Exercise6
+                        {
+                            Name = emp.Name,
+                            Age = currentDate.Year - emp.DateBirth.Year - (currentDate.DayOfYear < emp.DateBirth.DayOfYear ? 1 : 0),
+                            DateBirth = emp.DateBirth
+                        })
+                        .OrderByDescending(emp => emp.Age)
+                        .ToList();
+                    Response.Data = EmployeesWithAge;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Exercise7>>> GetExercise7Async()
+        {
+            var Response = new Response<List<Exercise7>> { Data = new List<Exercise7>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var Salaries = await App.Database.Table<Salary>().ToListAsync();
+                    var EmployeesOver30WithHighSalary = from emp in Employees
+                                                        join sal in Salaries on emp.EmployeeId equals sal.EmployeeId
+                                                        where (DateTime.Now.Year - emp.DateBirth.Year) > 30
+                                                              && decimal.Parse(sal.MonthlySalary) > 6000
+                                                        orderby decimal.Parse(sal.MonthlySalary) descending
+                                                        select new Exercise7
+                                                        {
+                                                            EmployeeId = emp.EmployeeId,
+                                                            Name = emp.Name,
+                                                            DateBirth = emp.DateBirth,
+                                                            MonthlySalary = decimal.Parse(sal.MonthlySalary)
+                                                        };
+                    Response.Data = EmployeesOver30WithHighSalary.ToList();
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+
+            return await Task.FromResult(Response);
+        }
     }
 }

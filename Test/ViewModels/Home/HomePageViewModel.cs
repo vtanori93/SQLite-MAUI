@@ -59,7 +59,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var Result = await SQLiteDB.GetExercise3Async();
+                if (Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 3 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }
@@ -69,7 +73,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var Result = await SQLiteDB.GetExercise4Async();
+                if (Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 4 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }
@@ -79,7 +87,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var Result = await SQLiteDB.GetExercise5Async();
+                if (Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 5 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }
@@ -89,7 +101,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var Result = await SQLiteDB.GetExercise6Async();
+                if (Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 6 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }
@@ -99,7 +115,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-
+                var Result = await SQLiteDB.GetExercise7Async();
+                if (Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 7 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }
