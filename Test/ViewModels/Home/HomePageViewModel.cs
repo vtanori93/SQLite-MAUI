@@ -25,5 +25,75 @@ namespace Test.ViewModels.Home
                 IsBusy = false;
             }
         }
+        public ICommand Exercise1Command => new Command(async (e) => { await ExecuteExercise1CommandAsync(); });
+        private async Task ExecuteExercise1CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+               
+                IsBusy = false;
+            }
+        }
+        public ICommand Exercise2Command => new Command(async (e) => { await ExecuteExercise2CommandAsync(); });
+        private async Task ExecuteExercise2CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                IsBusy = false;
+            }
+        }
+        public ICommand Exercise3Command => new Command(async (e) => { await ExecuteExercise3CommandAsync(); });
+        private async Task ExecuteExercise3CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                IsBusy = false;
+            }
+        }
+        public ICommand Exercise4Command => new Command(async (e) => { await ExecuteExercise4CommandAsync(); });
+        private async Task ExecuteExercise4CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                IsBusy = false;
+            }
+        }
+        public ICommand Exercise5Command => new Command(async (e) => { await ExecuteExercise5CommandAsync(); });
+        private async Task ExecuteExercise5CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                IsBusy = false;
+            }
+        }
+        public ICommand Exercise6Command => new Command(async (e) => { await ExecuteExercise6CommandAsync(); });
+        private async Task ExecuteExercise6CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                IsBusy = false;
+            }
+        }
+        public ICommand Exercise7Command => new Command(async (e) => { await ExecuteExercise7CommandAsync(); });
+        private async Task ExecuteExercise7CommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
+                IsBusy = false;
+            }
+        }
     }
 }
