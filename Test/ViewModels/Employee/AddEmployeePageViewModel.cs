@@ -64,8 +64,21 @@ namespace Test.ViewModels.Employee
             get { return department; }
             set { SetProperty(ref department, value); }
         }
+        Models.SQLiteDB.Department SelectedItemList1Object = new Models.SQLiteDB.Department();
+        Models.SQLiteDB.Department _selectedItemList1 = new Models.SQLiteDB.Department();
+        public Models.SQLiteDB.Department SelectedItemList1
+        {
+            get => _selectedItemList1;
+            set
+            {
+                SetProperty(ref _selectedItemList1, value);
+                OnItemList1Selected(value);
+            }
+        }
+        public Command<Models.SQLiteDB.Department> ItemList1Tapped { get; }
         public AddEmployeePageViewModel()
         {
+            ItemList1Tapped = new Command<Models.SQLiteDB.Department>(OnItemList1Selected);
             GetDataCommand?.Execute(null);
         }
         public ICommand GetDataCommand => new Command((e) => { ExecuteGetDataCommandAsync(); });
@@ -120,9 +133,16 @@ namespace Test.ViewModels.Employee
             if (!IsBusy)
             {
                 IsBusy = true;
+                Department = "Seleccione una opción";
                 IsVisibleList1 = !IsVisibleList1;
                 IsBusy = false;
             }
+        }
+        void OnItemList1Selected(Models.SQLiteDB.Department Item)
+        {
+            SelectedItemList1Object = Item;
+            Department = Item.Description;
+            IsVisibleList1 = false;
         }
     }
 }

@@ -101,6 +101,11 @@
                             <DataTemplate>
                                 <StackLayout
                                     Padding="12">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:AddEmployeePageViewModel}}, Path=ItemList1Tapped}"
+                                            CommandParameter="{Binding .}"/>
+                                    </StackLayout.GestureRecognizers>
                                     <Label
                                         StyleClass="StyleClassLabel3"
                                         Text="{Binding Description}"/>
