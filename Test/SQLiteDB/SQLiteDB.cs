@@ -1,4 +1,5 @@
 ﻿using Test.Models;
+using Test.Models.Exercise;
 using Test.Models.SQLiteDB;
 namespace Test.SQLiteDB
 {
@@ -142,6 +143,34 @@ namespace Test.SQLiteDB
                     {
                         Response.Data = Convert.ToBoolean(await App.Database.DeleteAsync(Result));
                     }
+                }
+            }
+            catch (Exception Ex)
+            {
+                Response.Error = true;
+                Response.Message = Ex.ToString();
+            }
+            return await Task.FromResult(Response);
+        }
+        public async Task<Response<List<Exercise1>>> GetExercise1Async()
+        {
+            var Response = new Response<List<Exercise1>> { Data = new List<Exercise1>() };
+            try
+            {
+                if (App.Database != null)
+                {
+                    var Employees = await App.Database.Table<Employee>().ToListAsync();
+                    var Salaries = await App.Database.Table<Salary>().ToListAsync();
+                    var Departments = await App.Database.Table<Department>().ToListAsync();
+                    Response.Data = Employees.Select(e => new Exercise1
+                    {
+                        EmployeeId = e.EmployeeId,
+                        Name = e.Name,
+                        DepartmentId = e.DepartmentId,
+                        PaymentMethod = Salaries.FirstOrDefault(s => s.EmployeeId == e.EmployeeId)?.PaymentMethod,
+                        MonthlySalary = Salaries.FirstOrDefault(s => s.EmployeeId == e.EmployeeId)?.MonthlySalary,
+                        Description = Departments.FirstOrDefault(d => d.DepartmentId == e.DepartmentId)?.Description
+                    }).ToList();
                 }
             }
             catch (Exception Ex)

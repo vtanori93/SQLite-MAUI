@@ -1,6 +1,6 @@
-﻿using IntelliJ.Lang.Annotations;
+﻿using System.Diagnostics;
 using System.Windows.Input;
-
+using Newtonsoft.Json;
 namespace Test.ViewModels.Home
 {
     public class HomePageViewModel : BaseViewModel
@@ -31,7 +31,11 @@ namespace Test.ViewModels.Home
             if (!IsBusy)
             {
                 IsBusy = true;
-               
+                var Result = await SQLiteDB.GetExercise1Async();
+                if(Result.Data != null && !Result.Error)
+                {
+                    Debug.WriteLine("Exercise 1 - Result: " + JsonConvert.SerializeObject(Result.Data));
+                }
                 IsBusy = false;
             }
         }

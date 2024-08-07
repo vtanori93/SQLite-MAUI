@@ -1,4 +1,5 @@
 ﻿using Test.Models;
+using Test.Models.Exercise;
 using Test.Models.SQLiteDB;
 namespace Test.SQLiteDB
 {
@@ -12,5 +13,6 @@ namespace Test.SQLiteDB
         Task<Response<List<Salary>>> GetSalaryAsync();
         Task<Response<bool>> DeleteDepartmentAsync(Guid DepartmentId);
         Task<Response<bool>> DeleteEmployeeAsync(Guid EmployeeId);
+        Task<Response<List<Exercise1>>> GetExercise1Async();
     }
 }
