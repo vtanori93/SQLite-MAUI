@@ -1,4 +1,6 @@
 namespace Test.Views.Entry;
+
+using Microsoft.Maui.Platform;
 #region EntryHandler
 #if ANDROID
 using Android.Content.Res;
@@ -24,9 +26,17 @@ public partial class CustomEntry1View : ContentView
         {
             h.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Colors.Transparent.ToPlatform());
         });
+        Microsoft.Maui.Handlers.DatePickerHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (h, v, d) =>
+        {
+            h.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Colors.Transparent.ToPlatform());
+        });
 #endif
 #if IOS
         Microsoft.Maui.Handlers.EntryHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (handler, view, property) =>
+        {
+            handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
+        });
+        Microsoft.Maui.Handlers.DatePickerHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (handler, view, property) =>
         {
             handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
         });
@@ -87,28 +97,7 @@ public partial class CustomEntry1View : ContentView
     private static void IsDataPickerPropertyChanged(BindableObject bendable, object oldValue, object newValue)
     {
         var Control = (CustomEntry1View)bendable;
-        Control.InputEntry.InputTransparent = true;
-    }
-
-    private void OpenDatePicker_Tapped(object sender, TappedEventArgs e)
-    {
-        if (IsDataPicker)
-        {
-            var DatePicker1 = new DatePicker
-            {
-                Format = "D",
-                MinimumDate = DateTime.Now.AddYears(-5),
-                MaximumDate = DateTime.Now.AddYears(5),
-                Date = DateTime.Now,
-                IsVisible = false
-            };
-            DatePicker1.Focus();
-            DatePicker1.DateSelected += DatePicker1_DateSelected; 
-        }
-    }
-
-    private void DatePicker1_DateSelected(object? sender, DateChangedEventArgs e)
-    {
-        throw new NotImplementedException();
+        Control.InputEntry.IsVisible = false;
+        Control.DatePicker1.IsVisible = true;
     }
 }

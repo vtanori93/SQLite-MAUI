@@ -30,6 +30,11 @@
                 <Setter Property="FontFamily" Value="OpenSans-Regular"/>
                 <Setter Property="TextColor" Value="{StaticResource Black1}"/>
             </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="OpenSans-Regular"/>
+                <Setter Property="TextColor" Value="{StaticResource Black1}"/>
+            </Style>
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
@@ -38,14 +43,20 @@
             <Label
                 x:Name="TitleLabel"/>
             <Frame>
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer
-                        x:Name="OpenDatePicker"
-                        Tapped="OpenDatePicker_Tapped"/>
-                </Frame.GestureRecognizers>
-                <Entry 
-                    x:Name="InputEntry"
-                    TextChanged="InputEntry_TextChanged"/>
+                <Grid
+                    RowDefinitions="auto"
+                    ColumnDefinitions="*">
+                    <Entry 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        x:Name="InputEntry"
+                        TextChanged="InputEntry_TextChanged"/>
+                    <DatePicker 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        x:Name="DatePicker1"
+                        IsVisible="False"/>
+                </Grid>
             </Frame>
         </VerticalStackLayout>
     </ContentView.Content>
