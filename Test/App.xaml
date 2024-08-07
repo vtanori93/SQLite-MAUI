@@ -12,7 +12,8 @@
             <Color x:Key="Gray1">#F6F6F6</Color>
             <Style Class="StyleClassButton1" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="CornerRadius" Value="4"/>
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontFamily" Value="OpenSans-Regular"/>
                 <Setter Property="TextColor" Value="{StaticResource White1}"/>

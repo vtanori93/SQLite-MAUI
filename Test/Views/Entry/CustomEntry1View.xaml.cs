@@ -1,45 +1,9 @@
 namespace Test.Views.Entry;
-#region EntryHandler
-#if ANDROID
-using Android.Content.Res;
-using Microsoft.Maui.Platform;
-#endif
-#if IOS
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-#endif
-#endregion
 public partial class CustomEntry1View : ContentView
 {
 	public CustomEntry1View()
 	{
 		InitializeComponent();
-        #region EntryHandler
-
-#if ANDROID
-        Microsoft.Maui.Handlers.EntryHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (h, v, d) =>
-        {
-            h.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Colors.Transparent.ToPlatform());
-        });
-        Microsoft.Maui.Handlers.DatePickerHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (h, v, d) =>
-        {
-            h.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Colors.Transparent.ToPlatform());
-        });
-#endif
-#if IOS
-        Microsoft.Maui.Handlers.EntryHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (handler, view, property) =>
-        {
-            handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
-        });
-        Microsoft.Maui.Handlers.DatePickerHandler.Mapper.ModifyMapping(nameof(CustomEntry1View), (handler, view, property) =>
-        {
-            handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None;
-        });
-#endif
-        #endregion
     }
     public string Title
     {

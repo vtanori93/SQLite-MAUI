@@ -7,10 +7,9 @@ namespace Test.Models.SQLiteDB
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public Guid DepartmentId { get; set; }
-        public Guid SalaryId { get; set; }
         public Guid EmployeeId { get; set; }
         public string Name { get; set; } = string.Empty;
         public DateTime DateTime { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime DateOfJoining { get; set; }
     }
 }

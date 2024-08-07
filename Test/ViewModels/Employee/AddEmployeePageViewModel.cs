@@ -15,6 +15,42 @@ namespace Test.ViewModels.Employee
             get { return cash; }
             set { SetProperty(ref cash, value); }
         }
+        string name = string.Empty;
+        public string Name
+        {
+            get { return name; }
+            set { SetProperty(ref name, value); }
+        }
+        string employeeKey = string.Empty;
+        public string EmployeeKey
+        {
+            get { return employeeKey; }
+            set { SetProperty(ref employeeKey, value); }
+        }
+        string birthDate = string.Empty;
+        public string BirthDate
+        {
+            get { return birthDate; }
+            set { SetProperty(ref birthDate, value); }
+        }
+        string dateOfJoining = string.Empty;
+        public string DateOfJoining
+        {
+            get { return dateOfJoining; }
+            set { SetProperty(ref dateOfJoining, value); }
+        }
+        string paymentMethod = string.Empty;
+        public string PaymentMethod
+        {
+            get { return paymentMethod; }
+            set { SetProperty(ref paymentMethod, value); }
+        }
+        string monthlySalary = string.Empty;
+        public string MonthlySalary
+        {
+            get { return monthlySalary; }
+            set { SetProperty(ref monthlySalary, value); }
+        }
         public ICommand ToggleTransferCommand => new Command((e) => { ExecuteToggleTransferCommand(); });
         private void ExecuteToggleTransferCommand()
         {
@@ -34,6 +70,16 @@ namespace Test.ViewModels.Employee
                 IsBusy = true;
                 Transfer = false;
                 Cash = !Cash;
+                IsBusy = false;
+            }
+        }
+        public ICommand SaveCommand => new Command(async (e) => { await ExecuteSaveCommandAsync(); });
+        private async Task ExecuteSaveCommandAsync()
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+
                 IsBusy = false;
             }
         }

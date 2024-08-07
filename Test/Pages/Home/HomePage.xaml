@@ -3,6 +3,7 @@
     xmlns:MainPage="clr-namespace:Test.Pages"
     xmlns:ViewModel="clr-namespace:Test.ViewModels.Home"
     xmlns:Language="clr-namespace:Test.Language"
+    Title="Panel de gestión de datos"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Test.Pages.Home.HomePage">

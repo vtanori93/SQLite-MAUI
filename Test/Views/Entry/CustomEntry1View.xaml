@@ -22,7 +22,6 @@
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontFamily" Value="OpenSans-Semibold"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="TextColor" Value="{StaticResource Black1}"/>
             </Style>
             <Style TargetType="Entry">
@@ -52,6 +51,8 @@
                         x:Name="InputEntry"
                         TextChanged="InputEntry_TextChanged"/>
                     <DatePicker 
+                        Grid.Row="0"
+                        Grid.Column="0"
                         x:Name="DatePickerSelector1"
                         IsVisible="False"
                         DateSelected="DatePickerSelector1_DateSelected"/>
